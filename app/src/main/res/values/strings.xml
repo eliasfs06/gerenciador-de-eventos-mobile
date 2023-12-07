@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Gerenciador De Eventos</string>
+    <string name="login">Login:</string>
+    <string name="senha">Senha:</string>
+    <string name="entrarButton">Entrar</string>
+    <string name="menu_title">O que deseja fazer?</string>
+    <string name="cadastrar_prod_btn">Cadastrar eventos</string>
+    <string name="listar_prod_btn">Listar eventos</string>
+    <string name="alterar_prod_btn">Alterar eventos</string>
+    <string name="deletar_prod_btn">Deletar eventos</string>
+    <string name="codigo_prod">Código do evento:</string>
+    <string name="nome_prod">Nome do evento:</string>
+    <string name="descricao_prod">Descrição do evento:</string>
+    <string name="salvar_btn">Salvar</string>
+    <string name="limpar_btn">Limpar</string>
+    <string name="voltar_btn">Voltar</string>
+    <string name="deletar_btn">Excluir</string>
+
+</resources>
