@@ -16,7 +16,9 @@ public class MenuActivity extends AppCompatActivity {
 
         Button btnCadastraEvento = findViewById(R.id.cadastrarProdButton);
         Button btnListarEventos = findViewById(R.id.listarProdButton);
+        Button btnAlterarEventos = findViewById(R.id.alterarProdButton);
         Button btnDeletarEventos = findViewById(R.id.deletarProdButton);
+
         btnCadastraEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +33,13 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        btnAlterarEventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                irParaAlterarEvento();
+            }
+        });
+
         btnDeletarEventos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,19 +49,25 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void irParaCadastrarActivity() {
-        Intent intent = new Intent(MenuActivity.this, CadastroEventoActivity.class);
+        Intent intent = new Intent(MenuActivity.this, CadastroClienteActivity.class);
         startActivity(intent);
         finish();
     }
 
     private void irParaListarActivity() {
-        Intent intent = new Intent(MenuActivity.this, ListaEventosActivity.class);
+        Intent intent = new Intent(MenuActivity.this, Userlist.class);
         startActivity(intent);
-        finish();
+//        finish();
+    }
+
+    private void irParaAlterarEvento() {
+        Intent intent = new Intent(MenuActivity.this, AlterarClienteActivity.class);
+        startActivity(intent);
+//        finish();
     }
 
     private void irParaDeletarActivity() {
-        Intent intent = new Intent(MenuActivity.this, DeletaEventoActivity.class);
+        Intent intent = new Intent(MenuActivity.this, DeletarClienteActivity.class);
         startActivity(intent);
         finish();
     }

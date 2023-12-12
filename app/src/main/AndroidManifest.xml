@@ -13,13 +13,19 @@
         android:theme="@style/Theme.GerenciadorEventos"
         tools:targetApi="31">
         <activity
-            android:name=".DeletaEventoActivity"
+            android:name=".Userlist"
+            android:exported="false" />
+        <activity
+            android:name=".AlterarClienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeletarClienteActivity"
             android:exported="false" />
         <activity
             android:name=".ListaEventosActivity"
             android:exported="false" />
         <activity
-            android:name=".CadastroEventoActivity"
+            android:name=".CadastroClienteActivity"
             android:exported="false" />
         <activity
             android:name=".MenuActivity"
