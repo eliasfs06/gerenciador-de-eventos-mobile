@@ -21,7 +21,7 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="76dp"
+            android:layout_height="wrap_content"
             android:background="#FF5722"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/app_name"
@@ -118,15 +118,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp">
 
             <ImageView
-                android:id="@+id/imageRockInRio"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                tools:srcCompat="@drawable/rockinrio" />
+                android:layout_width="99dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/rockinrio" />
 
             <CheckBox
                 android:id="@+id/cbRockInRio"
@@ -135,10 +135,10 @@
                 android:text="Rock In Rio   " />
 
             <ImageView
-                android:id="@+id/imageTheTown"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                tools:srcCompat="@drawable/thetown" />
+                android:layout_width="99dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/thetown" />
 
             <CheckBox
                 android:id="@+id/cbTheTown"
@@ -150,15 +150,15 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp">
 
             <ImageView
-                android:id="@+id/imageLolla"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                tools:srcCompat="@drawable/lolla" />
+                android:layout_width="99dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/lolla" />
 
             <CheckBox
                 android:id="@+id/cbLolla"
@@ -167,10 +167,10 @@
                 android:text="Lollapalooza" />
 
             <ImageView
-                android:id="@+id/imageCarnatal"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                tools:srcCompat="@drawable/carnatal" />
+                android:layout_width="99dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/carnatal" />
 
             <CheckBox
                 android:id="@+id/cbCarnatal"

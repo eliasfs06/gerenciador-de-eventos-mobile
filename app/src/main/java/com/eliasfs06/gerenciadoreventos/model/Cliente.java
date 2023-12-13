@@ -4,29 +4,28 @@ import java.util.List;
 
 public class Cliente {
 
-    String codigo;
-    String nome;
-    String email;
-    String sexo;
-    Boolean rockInRio, theTown, lollapalooza, carnatal;
+    String codigo, nome, email, sexo;
+    String rockInRio, theTown, lollapalooza, carnatal;
     public Cliente() {
     }
-    public Cliente(String codigo, String nome, String email, String sexo, Boolean rockInRio, Boolean theTown, Boolean lollapalooza, Boolean carnatal) {
+    public Cliente(String codigo, String nome, String email, String sexo, String rockInRio, String theTown, String lollapalooza, String carnatal) {
         this.codigo = codigo;
         this.nome = nome;
         this.email = email;
         this.sexo = sexo;
         this.rockInRio = rockInRio;
         this.theTown = theTown;
-        lollapalooza = lollapalooza;
+        this.lollapalooza = lollapalooza;
         this.carnatal = carnatal;
     }
 
-    public Cliente(String codigo, String nome, String email) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.email = email;
-    }
+//    public Cliente(String codigo, String nome, String email, String sexo, String rockInRio) {
+//        this.codigo = codigo;
+//        this.nome = nome;
+//        this.email = email;
+//        this.sexo = sexo;
+//        this.rockInRio = rockInRio;
+//    }
 
     public String getCodigo() {
         return codigo;
@@ -60,35 +59,35 @@ public class Cliente {
         this.sexo = sexo;
     }
 
-    public Boolean getRockInRio() {
+    public String getRockInRio() {
         return rockInRio;
     }
 
-    public void setRockInRio(Boolean rockInRio) {
+    public void setRockInRio(String rockInRio) {
         this.rockInRio = rockInRio;
     }
 
-    public Boolean getTheTown() {
+    public String getTheTown() {
         return theTown;
     }
 
-    public void setTheTown(Boolean theTown) {
+    public void setTheTown(String theTown) {
         this.theTown = theTown;
     }
 
-    public Boolean getLollapalooza() {
+    public String getLollapalooza() {
         return lollapalooza;
     }
 
-    public void setLollapalooza(Boolean lollapalooza) {
-        lollapalooza = lollapalooza;
+    public void setLollapalooza(String lollapalooza) {
+        this.lollapalooza = lollapalooza;
     }
 
-    public Boolean getCarnatal() {
+    public String getCarnatal() {
         return carnatal;
     }
 
-    public void setCarnatal(Boolean carnatal) {
+    public void setCarnatal(String carnatal) {
         this.carnatal = carnatal;
     }
 }

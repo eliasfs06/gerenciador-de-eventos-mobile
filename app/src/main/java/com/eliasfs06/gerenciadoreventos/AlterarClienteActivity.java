@@ -18,12 +18,9 @@ import com.eliasfs06.gerenciadoreventos.model.Cliente;
 
 public class AlterarClienteActivity extends AppCompatActivity {
 
-    private EditText codigoText;
-    private EditText nomeText;
-    private EditText emailText;
-    private String sexoText;
+    private EditText codigoText, nomeText, emailText;
+    private String sexoText, rockInRio, theTown, lollaPalooza, carnatal;
     private RadioGroup selecaoSexo;
-    Boolean rockInRio, theTown, lollaPalooza, carnatal;
 
     private CheckBox boxRockInRio, boxTheTown, boxLolla, boxCarnatal;
     DBHelper dbHelper;
@@ -35,11 +32,11 @@ public class AlterarClienteActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
 
-        rockInRio = theTown = lollaPalooza = carnatal = false;
         codigoText = findViewById(R.id.codigoText);
         nomeText = findViewById(R.id.nomeText);
         emailText = findViewById(R.id.emailText);
-        sexoText = "Não Selecionado";
+        sexoText = "N/S";
+        rockInRio = theTown = lollaPalooza = carnatal = "Não";
 
         boxRockInRio = findViewById(R.id.cbRockInRio);
         boxTheTown = findViewById(R.id.cbTheTown);
@@ -57,34 +54,39 @@ public class AlterarClienteActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton opcao = findViewById(checkedId);
                 sexoText = opcao.getText().toString();
+                if(sexoText.equals("Masculino")) {
+                    sexoText = "M";
+                } else if (sexoText.equals("Feminino")) {
+                    sexoText = "F";
+                }
             }
         });
 
         boxRockInRio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                rockInRio = isChecked;
+                rockInRio = (isChecked) ? "Sim" : "Não";
             }
         });
 
         boxTheTown.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                theTown = isChecked;
+                theTown = (isChecked) ? "Sim" : "Não";
             }
         });
 
         boxLolla.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                lollaPalooza = isChecked;
+                lollaPalooza = (isChecked) ? "Sim" : "Não";
             }
         });
 
         boxCarnatal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                carnatal = isChecked;
+                carnatal = (isChecked) ? "Sim" : "Não";
             }
         });
 
@@ -93,7 +95,7 @@ public class AlterarClienteActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                RadioButton opcao = findViewById(selecaoSexo.getCheckedRadioButtonId());
 //                Toast.makeText(CadastroClienteActivity.this, opcao.getText(), Toast.LENGTH_SHORT).show();
-                validarEvento();
+                validarCliente();
             }
         });
 
@@ -112,10 +114,14 @@ public class AlterarClienteActivity extends AppCompatActivity {
         });
     }
 
-    private void salvarEvento(String codigo, String nome, String email) {
-        dbHelper.alterdata(new Cliente(codigo, nome, email));
-        showToast("Evento salvo com sucesso!");
-        limparInput();
+    private void salvarCliente(String codigo, String nome, String email, String sexo, String rockInRio, String theTown, String lollaPalooza, String carnatal) {
+        if(dbHelper.verificarClienteExistente(codigo)){
+            dbHelper.alterdata(new Cliente(codigo, nome, email, sexo, rockInRio, theTown, lollaPalooza, carnatal));
+            showToast("Participante salvo com sucesso!");
+            limparInput();
+        } else {
+            showToast("Não foi encontrado participante com esse código.");
+        }
     }
 
     private void limparInput(){
@@ -128,13 +134,13 @@ public class AlterarClienteActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), mensagem, Toast.LENGTH_SHORT).show();
     }
 
-    public void validarEvento(){
+    public void validarCliente(){
         String codigo = codigoText.getText().toString();
         String nome = nomeText.getText().toString();
         String email = emailText.getText().toString();
 
         if(!codigo.isEmpty() && !nome.isEmpty() && !email.isEmpty()){
-            salvarEvento(codigo, nome, email);
+            salvarCliente(codigo, nome, email, sexoText, rockInRio, theTown, lollaPalooza, carnatal);
         } else {
             showToast("Preencha todos os campos.");
         }

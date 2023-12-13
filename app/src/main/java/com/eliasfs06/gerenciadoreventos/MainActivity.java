@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login(String username, String password) {
-        if (username.equals("admin") && password.equals("admin")) {
+        if (username.equals("") && password.equals("")) {
             SharedPreferences.Editor editor = getSharedPreferences("pref", MODE_PRIVATE).edit();
             editor.putBoolean("loggedIn", true);
             editor.apply();

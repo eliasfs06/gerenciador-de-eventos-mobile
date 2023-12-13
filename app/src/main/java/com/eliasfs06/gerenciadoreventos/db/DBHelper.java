@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase DB) {
         DB.execSQL("create Table UserDetails(codigo TEXT primary key, nome TEXT, email TEXT, sexo TEXT, " +
-                "rockInRio BOOLEAN, theTown BOOLEAN, lollapalooza BOOLEAN, carnatal BOOLEAN)");
+                "rockInRio TEXT, theTown TEXT, lollapalooza TEXT, carnatal TEXT)");
     }
 
     @Override
@@ -59,11 +59,11 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("codigo", cliente.getCodigo());
         contentValues.put("nome", cliente.getNome());
         contentValues.put("email", cliente.getEmail());
-//        contentValues.put("sexo", cliente.getSexo());
-//        contentValues.put("rockInRio", cliente.getRockInRio());
-//        contentValues.put("theTown", cliente.getTheTown());
-//        contentValues.put("lollapalooza", cliente.getLollapalooza());
-//        contentValues.put("carnatal", cliente.getCarnatal());
+        contentValues.put("sexo", cliente.getSexo());
+        contentValues.put("rockInRio", cliente.getRockInRio());
+        contentValues.put("theTown", cliente.getTheTown());
+        contentValues.put("lollapalooza", cliente.getLollapalooza());
+        contentValues.put("carnatal", cliente.getCarnatal());
         Cursor cursor = DB.rawQuery("Select * from Userdetails where codigo = ?", new String[]{codigoAntigo});
         if (cursor.getCount() > 0) {
             long result = DB.update("Userdetails", contentValues, "codigo=?", new String[]{codigoAntigo});
@@ -85,16 +85,29 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Boolean deletedata(String codigo) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select * from Userdetails where codigo=?", new String[]{codigo});
+        Cursor cursor = DB.rawQuery("SELECT * FROM Userdetails WHERE codigo = ?", new String[]{codigo});
+
         if (cursor.getCount() > 0) {
             long result = DB.delete("Userdetails", "codigo=?", new String[]{codigo});
-            if (result == -1) {
-                return false;
-            } else {
-                return true;
-            }
+            cursor.close();
+
+            return result != -1;
         } else {
+            cursor.close();
             return false;
         }
     }
+
+
+    public boolean verificarClienteExistente(String codigo) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+
+        Cursor cursor = DB.rawQuery("SELECT * FROM Userdetails WHERE codigo = ?", new String[]{codigo});
+
+        boolean existeCliente = cursor.getCount() > 0;
+
+        cursor.close();
+        return existeCliente;
+    }
+
 }

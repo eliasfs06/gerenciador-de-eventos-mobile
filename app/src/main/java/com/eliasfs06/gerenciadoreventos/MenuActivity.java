@@ -67,7 +67,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void irParaDeletarActivity() {
-        Intent intent = new Intent(MenuActivity.this, DeletarClienteActivity.class);
+        Intent intent = new Intent(MenuActivity.this, DeletarEventoActivity.class);
         startActivity(intent);
         finish();
     }

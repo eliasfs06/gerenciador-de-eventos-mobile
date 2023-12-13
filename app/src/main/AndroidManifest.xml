@@ -19,7 +19,7 @@
             android:name=".AlterarClienteActivity"
             android:exported="false" />
         <activity
-            android:name=".DeletarClienteActivity"
+            android:name=".DeletarEventoActivity"
             android:exported="false" />
         <activity
             android:name=".ListaEventosActivity"

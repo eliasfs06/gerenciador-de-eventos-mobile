@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Userlist extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<String> codigo, nome, email;
+    ArrayList<String> codigo, nome, email, sexo, rockInRio, theTown, lollapalooza, carnatal;
     DBHelper dpHelper;
     MyAdapter adapter;
     Button btnVoltar;
@@ -30,6 +30,11 @@ public class Userlist extends AppCompatActivity {
         codigo = new ArrayList<>();
         nome = new ArrayList<>();
         email = new ArrayList<>();
+        sexo = new ArrayList<>();
+        rockInRio = new ArrayList<>();
+        theTown = new ArrayList<>();
+        lollapalooza = new ArrayList<>();
+        carnatal = new ArrayList<>();
 
         btnVoltar = findViewById(R.id.btnVoltar);
         btnVoltar.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +45,7 @@ public class Userlist extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recyclerview);
-        adapter = new MyAdapter(this, codigo, nome, email);
+        adapter = new MyAdapter(this, codigo, nome, email, sexo, rockInRio, theTown, lollapalooza, carnatal);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displaydata();
@@ -56,6 +61,11 @@ public class Userlist extends AppCompatActivity {
                 codigo.add(cursor.getString(0));
                 nome.add(cursor.getString(1));
                 email.add(cursor.getString(2));
+                sexo.add(cursor.getString(3));
+                rockInRio.add(cursor.getString(4));
+                theTown.add(cursor.getString(5));
+                lollapalooza.add(cursor.getString(6));
+                carnatal.add(cursor.getString(7));
             }
         }
     }

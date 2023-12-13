@@ -1,17 +1,17 @@
 <resources>
-    <string name="app_name">Gerenciador De Clientes</string>
+    <string name="app_name">Gerenciador De Participantes</string>
     <string name="login">Login:</string>
     <string name="senha">Senha:</string>
     <string name="entrarButton">Entrar</string>
     <string name="menu_title">O que deseja fazer?</string>
-    <string name="cadastrar_prod_btn">Cadastrar clientes</string>
-    <string name="listar_prod_btn">Listar clientes</string>
-    <string name="alterar_prod_btn">Alterar clientes</string>
-    <string name="deletar_prod_btn">Deletar clientes</string>
-    <string name="codigo_cliente">Código do cliente:</string>
-    <string name="nome_cliente">Nome do cliente:</string>
-    <string name="email_cliente">Email do cliente:</string>
-    <string name="sexo_cliente">Sexo do cliente:</string>
+    <string name="cadastrar_prod_btn">Cadastrar participantes</string>
+    <string name="listar_prod_btn">Listar participantes</string>
+    <string name="alterar_prod_btn">Alterar participantes</string>
+    <string name="deletar_prod_btn">Deletar participantes</string>
+    <string name="codigo_cliente">Código do participante:</string>
+    <string name="nome_cliente">Nome do participante:</string>
+    <string name="email_cliente">Email do participante:</string>
+    <string name="sexo_cliente">Sexo do participante:</string>
     <string name="radio_masculino">Masculino</string>
     <string name="radio_feminino">Feminino</string>
     <string name="selecionar_evento">Selecione um ou mais Eventos:</string>
